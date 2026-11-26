@@ -3,7 +3,7 @@
 import crypto from 'node:crypto';
 
 export const PRICE = 10000;          // prix unitaire, XAF
-export const SHIP_FEE = 2000;        // retrait AIC Cargo, Libreville, XAF
+export const SHIP_FEE = 0;           // retrait AIC Cargo, Libreville : inclus dans le prix
 export const MAX_QTY = 5;
 export const CURRENCY = 'XAF';
 
