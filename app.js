@@ -540,14 +540,15 @@ document.addEventListener('change',async e=>{if(e.target.id!=='upl'||!ASSETS)ret
  for(const f of fs){try{const r=await ASSETS.upload(f);cfg.photos.push({id:String(r.id),alt:''});markDirty()}catch(err){toast('Échec du téléversement d’une photo')}}
  render();if(fs.length)toast('Photos ajoutées : pensez à enregistrer')});
 document.addEventListener('submit',e=>{if(e.target.id!=='coform')return;e.preventDefault();
- const errs=validate();$('#ferr').textContent=errs.join(' ');if(errs.length)return;
+ const errs=validate();$('#ferr').textContent=errs.join(' ');if(errs.length){toast(errs[0]);$('#ferr').scrollIntoView({block:'center',behavior:'smooth'});return}
  const p=price(),f=fee(),q=cart.qty;if(!(p&&f!==null&&q&&shipOK()))return;
  const o={ref:mkRef(),qty:q,unit:p,fee:f,total:p*q+f,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:form.pm||'carte',at:new Date().toISOString(),status:'attente'};
  if(PAY_ACTIVE){if(payBusy)return;payBusy=true;refreshCheckout();
-   fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm})})
-   .then(r=>r.json().then(j=>({ok:r.ok,j}))).then(({ok,j})=>{if(!ok||!j.url)throw new Error(j.error||'Le paiement n’a pas pu être lancé. Réessayez dans un instant.');
+   const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),25000);
+   fetch('/api/checkout',{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm})})
+   .then(r=>{clearTimeout(tm);return r.json().catch(()=>({})).then(j=>({ok:r.ok,j}))}).then(({ok,j})=>{if(!ok||!j.url)throw new Error(j.error||'Le paiement n’a pas pu être lancé. Réessayez dans un instant.');
     setOrder({...o,ref:j.ref,total:j.total,session:j.session,live:true,test:!!j.test,status:'attente'});location.href=j.url})
-   .catch(err=>{payBusy=false;refreshCheckout();const fe=$('#ferr');if(fe)fe.textContent=err.message||'Le paiement n’a pas pu être lancé.'});return}
+   .catch(err=>{clearTimeout(tm);payBusy=false;refreshCheckout();const m=err&&err.name==='AbortError'?'La connexion est trop lente : réessayez.':(err&&err.message)||'Le paiement n’a pas pu être lancé.';const fe=$('#ferr');if(fe){fe.textContent=m;fe.scrollIntoView({block:'center',behavior:'smooth'})}toast(m)});return}
  if(!(OWNER&&cfg.test.enabled))return;
  o.test=true;o.status=$('#simres').value;setOrder(o);location.hash='paiement-'+o.status});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawerOpen)openDrawer(false);if(e.target.id==='gmain'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();gTo(gi+(e.key==='ArrowRight'?1:-1))}});
@@ -567,6 +568,7 @@ async function checkPay(manual){const o=order;if(!o||!o.session||o.status!=='att
   PAY_TEST=!!j.test;PAY_PRIV=!!j.active&&!j.open;PAY_ACTIVE=!!j.active&&(!!j.open||LS.get('kt_paytest',0)===1);
   if(PAY_ACTIVE)render();if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente')checkPay()}catch(e){}})();
 window.addEventListener('hashchange',()=>{if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente'){pollN=0;checkPay()}});
+window.addEventListener('pageshow',e=>{if(payBusy||e.persisted){payBusy=false;if(route().p==='commande')refreshCheckout();else render()}});
 
 /* ---------- Démarrage et données partagées ---------- */
 render(true);
