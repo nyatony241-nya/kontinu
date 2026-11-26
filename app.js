@@ -15,7 +15,7 @@ const blob=id=>'/_blob/'+esc(id);
 
 /* Le paiement n'est déclaré actif qu'après ouverture du compte marchand, intégration de la page de paiement hébergée
    et vérification de la confirmation côté serveur (notification du prestataire). Ce n'est pas encore le cas. */
-const PAY_ACTIVE=false;
+let PAY_ACTIVE=false,PAY_TEST=false,payBusy=false;
 const WH=22.2,EFF=[0.75,0.85],MAXW=24;
 
 const P={
@@ -364,7 +364,7 @@ function sumHTML(){const p=price(),f=fee(),q=cart.qty,ok=shipOK()&&f!==null,I=im
 function payArea(){const p=price(),f=fee(),ok=!!(p&&f!==null&&shipOK()),tot=ok?p*cart.qty+f:null;
  const pm=form.pm||'carte';
  const head=`<div class="pms" role="radiogroup" aria-label="Moyen de paiement"><label class="pm${pm==='carte'?' sel':''}"><input type="radio" name="pm" value="carte"${pm==='carte'?' checked':''}>${ic('card')}<span><b>Carte bancaire</b>Visa, Mastercard</span></label><label class="pm${pm==='momo'?' sel':''}"><input type="radio" name="pm" value="momo"${pm==='momo'?' checked':''}>${ic('phone')}<span><b>Mobile Money</b>Airtel Money, Moov Money</span></label></div><p class="small mute" style="margin-top:10px">Vous validez le paiement sur la page sécurisée ${providerOK()?'de '+esc(cfg.pay.provider):'du prestataire de paiement'}. Aucune donnée de carte n’est saisie sur ce site.</p>`;
- if(PAY_ACTIVE)return head+`<button class="btn wide" style="margin-top:16px" type="submit"${ok?'':' disabled'}>Payer ${ok?fcfa(tot):''}</button>`;
+ if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">D’éventuels frais du prestataire de paiement s’affichent sur la page de paiement, avant toute validation.</p>`;
  if(OWNER&&cfg.test.enabled)return head+`<div class="testbox"><b>Mode test</b><p class="small">Visible uniquement par vous. Aucune transaction réelle.</p><div class="fl"><label for="simres">Réponse simulée du prestataire</label><select id="simres"><option value="confirme">Paiement confirmé</option><option value="refuse">Paiement refusé</option><option value="annule">Paiement annulé</option><option value="attente">Paiement en attente</option></select></div></div><button class="btn wide" style="margin-top:16px" type="submit"${ok?'':' disabled'}>Simuler le paiement${ok?' de '+fcfa(tot):''}</button>`;
  return head+`<button class="btn wide" style="margin-top:16px" type="button" disabled>Paiement bientôt disponible</button><p class="small mute" style="margin-top:10px">Le paiement en ligne ouvrira très prochainement : aucune somme ne peut être débitée pour l’instant.</p>`}
 function pgCheckout(){if(!cart.qty)return `<section class="band"><div class="wrap narrow"><h1>Votre panier est vide</h1><p style="margin-top:24px"><a class="btn" href="#">Voir le produit</a></p></div></section>`;
@@ -518,7 +518,7 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g
  else if(a==='gto')gTo(+b.dataset.i);
  else if(a==='gstep')gTo(gi+ +b.dataset.d);
  else if(a==='simto'){if(order&&order.test){setOrder({...order,status:b.dataset.s});location.hash='paiement-'+b.dataset.s}}
- else if(a==='refresh'){toast(order&&order.test?'Statut inchangé : toujours en attente':'Statut actualisé');render()}
+ else if(a==='refresh'){if(order&&order.session)checkPay(true);else{toast('Statut inchangé : toujours en attente');render()}}
  else if(a==='aadd'){const arr=b.dataset.arr;cfg[arr].push(arr==='reviews'?{name:'',country:'',rating:'5',date:'',text:'',verified:false}:{v:'',ok:true});markDirty();render()}
  else if(a==='adel'){cfg[b.dataset.arr].splice(+b.dataset.i,1);markDirty();render()}
  else if(a==='save')save();
@@ -543,12 +543,30 @@ document.addEventListener('submit',e=>{if(e.target.id!=='coform')return;e.preven
  const errs=validate();$('#ferr').textContent=errs.join(' ');if(errs.length)return;
  const p=price(),f=fee(),q=cart.qty;if(!(p&&f!==null&&q&&shipOK()))return;
  const o={ref:mkRef(),qty:q,unit:p,fee:f,total:p*q+f,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:form.pm||'carte',at:new Date().toISOString(),status:'attente'};
- if(PAY_ACTIVE){/* Production : enregistrer la commande côté serveur (statut « en attente de paiement »), puis rediriger vers la page de paiement hébergée.
-   Seule la notification serveur du prestataire peut la passer à « payée ». */return}
+ if(PAY_ACTIVE){if(payBusy)return;payBusy=true;refreshCheckout();
+   fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm})})
+   .then(r=>r.json().then(j=>({ok:r.ok,j}))).then(({ok,j})=>{if(!ok||!j.url)throw new Error(j.error||'Le paiement n’a pas pu être lancé. Réessayez dans un instant.');
+    setOrder({...o,ref:j.ref,total:j.total,session:j.session,live:true,test:!!j.test,status:'attente'});location.href=j.url})
+   .catch(err=>{payBusy=false;refreshCheckout();const fe=$('#ferr');if(fe)fe.textContent=err.message||'Le paiement n’a pas pu être lancé.'});return}
  if(!(OWNER&&cfg.test.enabled))return;
  o.test=true;o.status=$('#simres').value;setOrder(o);location.hash='paiement-'+o.status});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawerOpen)openDrawer(false);if(e.target.id==='gmain'&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();gTo(gi+(e.key==='ArrowRight'?1:-1))}});
 window.addEventListener('hashchange',()=>{openDrawer(false);render(true)});
+
+/* ---------- Paiement en ligne (SasPay, via les fonctions serveur /api) ---------- */
+let pollN=0,pollT=null;
+async function checkPay(manual){const o=order;if(!o||!o.session||o.status!=='attente')return;
+ try{const r=await fetch('/api/status?session='+encodeURIComponent(o.session),{cache:'no-store'});const j=await r.json();
+  if(r.ok&&j.status&&j.status!=='attente'){setOrder({...o,status:j.status});location.hash='paiement-'+j.status;return}
+  if(manual)toast('Paiement toujours en attente de confirmation')}catch(e){if(manual)toast('Vérification impossible pour le moment')}
+ clearTimeout(pollT);if(!manual&&route().p==='paiement-attente'&&++pollN<40)pollT=setTimeout(checkPay,5000)}
+(async()=>{try{const u=new URL(location.href),t=u.searchParams.get('paytest');
+  if(t!==null){LS.set('kt_paytest',t==='1'?1:0);u.searchParams.delete('paytest');history.replaceState(null,'',u.pathname+u.search+u.hash)}
+  if(!/^https?:$/.test(location.protocol)||window.claude)return;
+  const r=await fetch('/api/config',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
+  PAY_TEST=!!j.test;PAY_ACTIVE=!!j.active&&(!j.test||LS.get('kt_paytest',0)===1);
+  if(PAY_ACTIVE)render();if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente')checkPay()}catch(e){}})();
+window.addEventListener('hashchange',()=>{if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente'){pollN=0;checkPay()}});
 
 /* ---------- Démarrage et données partagées ---------- */
 render(true);
