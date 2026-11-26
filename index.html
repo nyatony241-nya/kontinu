@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontinu — Mini-onduleur 12 V pour routeur Wi‑Fi</title>
+<meta name="description" content="Mini-onduleur 12 V pour routeur Wi‑Fi : votre connexion reste allumée 3 à 4 h pendant les coupures de courant. Installé en 2 minutes, garantie 3 mois.">
+<meta name="theme-color" content="#0f1113">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://kontinu.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kontinu">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Le courant coupe, votre Wi‑Fi reste allumé — Kontinu">
+<meta property="og:description" content="Mini-onduleur 12 V pour routeur Wi‑Fi : votre connexion reste allumée 3 à 4 h pendant les coupures de courant. Installé en 2 minutes, garantie 3 mois.">
+<meta property="og:url" content="https://kontinu.vercel.app/">
+<meta property="og:image" content="https://kontinu.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="315">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="ann" id="ann"></div>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="#" aria-label="Accueil"><svg viewBox="0 0 32 32" aria-hidden="true"><rect class="lm" width="32" height="32" rx="8"/><g class="la" fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M7.5 12.5a12 12 0 0 1 17 0"/><path d="M10.7 15.7a7.5 7.5 0 0 1 10.6 0"/></g><circle cx="16" cy="21.2" r="2.6" fill="#1fae48"/></svg><span id="brand">Kontinu</span></a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#autonomie">Autonomie</a>
+      <a href="#compatibilite">Compatibilité</a>
+      <a href="#questions">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="acts">
+      <button class="icb" data-act="cart" aria-label="Ouvrir le panier"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1.2 12H6.7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><b id="cartn" hidden>0</b></button>
+      <button class="icb menu" data-act="menu" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div id="obar"></div>
+<main id="app"></main>
+<footer class="foot" id="foot"></footer>
+<div class="sbar" id="sbar" aria-hidden="true"></div>
+<div class="ovl" id="ovl" data-act="close"></div>
+<aside class="drawer" id="drawer" aria-label="Panier" aria-hidden="true"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
