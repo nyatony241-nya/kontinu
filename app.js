@@ -112,10 +112,10 @@ Article 3 – Compatibilité
 Il appartient au client de vérifier avant la commande que son appareil fonctionne en 12 V, avec une intensité de 2 A maximum et une fiche compatible. Le service client peut l’aider à le vérifier sur demande.
 
 Article 4 – Prix
-Les prix sont indiqués en francs CFA (XAF). Le retrait au point de retrait est inclus dans le prix. Les frais du prestataire de paiement, qui dépendent de l’opérateur Mobile Money choisi, s’ajoutent au prix et sont affichés sur la page de paiement avant toute validation.
+Les prix sont indiqués en francs CFA (XAF). Le retrait au point de retrait est inclus dans le prix. Les frais du prestataire de paiement, qui dépendent du moyen choisi (carte ou Mobile Money), s’ajoutent au prix et sont affichés sur la page de paiement avant toute validation.
 
 Article 5 – Commande et paiement
-Le paiement s’effectue par Mobile Money (Airtel Money, Moov Money), sur la page sécurisée du prestataire de paiement. Aucun code Mobile Money n’est saisi ni conservé par le vendeur. La commande n’est confirmée qu’après validation du paiement par le prestataire ; une référence de commande est alors communiquée au client.
+Le paiement s’effectue par carte bancaire ou par Mobile Money (Airtel Money, Moov Money), sur la page sécurisée du prestataire de paiement. Aucune donnée de carte ni aucun code Mobile Money n’est saisi ni conservé par le vendeur. La commande n’est confirmée qu’après validation du paiement par le prestataire ; une référence de commande est alors communiquée au client.
 
 Article 6 – Livraison et retrait
 Les destinations desservies, les modes de livraison, les frais et les délais sont affichés lors de la commande. Pour un retrait en point relais, le délai annoncé est exprimé en jours ouvrés à compter de la confirmation du paiement. Il est indicatif et peut atteindre deux semaines selon les aléas du transport et des formalités douanières. Le client est contacté à l’arrivée du colis et le retire sur présentation d’une pièce d’identité au nom indiqué lors de la commande. Le transporteur partenaire ne traite pas les demandes des clients : toute question est adressée au service client du vendeur.
@@ -137,7 +137,7 @@ Les présentes conditions sont soumises au droit gabonais.`,privacy:`Données co
 
 Utilisation : ces données servent uniquement à traiter votre commande, à vous contacter à l’arrivée de votre colis et à assurer le service après-vente. Elles ne sont ni vendues ni cédées à des tiers à des fins commerciales.
 
-Paiement : le paiement est réalisé sur la page sécurisée du prestataire de paiement. Nous ne recevons ni ne conservons vos codes Mobile Money.
+Paiement : le paiement est réalisé sur la page sécurisée du prestataire de paiement. Nous ne recevons ni ne conservons vos données de carte ni vos codes Mobile Money.
 
 Conservation : vos données sont conservées le temps nécessaire au traitement de la commande et de la garantie, et au respect des obligations comptables.
 
@@ -233,9 +233,9 @@ function faqs(){const s=cfg.ship;return[
  ['L’adaptateur secteur est-il fourni ?','Non : comme le prévoit le fabricant, vous réutilisez l’adaptateur 12 V de votre routeur, que vous branchez sur l’entrée IN du mini-onduleur.'],
  ['Comment entretenir la batterie ?','Laissez l’interrupteur sur ON : la batterie ne se charge qu’en position ON. Avant un rangement prolongé, chargez-la complètement, puis rechargez-la tous les 3 à 5 mois si vous ne l’utilisez pas, selon les recommandations du fabricant.'],
  ['Où et quand vais-je recevoir ma commande ?','Les modes de livraison, les frais et le délai disponibles pour votre adresse s’affichent à l’étape de commande, avant le paiement. Le délai annoncé est indicatif et peut s’allonger selon les aléas du transport. Lorsque votre colis est disponible au point de retrait, nous vous contactons avec les informations nécessaires pour le retirer.'],
- ['Quels moyens de paiement acceptez-vous ?',`Par Mobile Money (Airtel Money, Moov Money), sur la page de paiement sécurisée de notre prestataire. Votre code Mobile Money n’est jamais saisi ni conservé sur notre site.${PAY_ACTIVE?'':' Le paiement en ligne ouvrira très prochainement.'}`],
+ ['Quels moyens de paiement acceptez-vous ?',`Par carte bancaire (Visa, Mastercard) ou par Mobile Money (Airtel Money, Moov Money), sur la page de paiement sécurisée de notre prestataire. Aucun numéro de carte n’est saisi ni conservé sur notre site.${PAY_ACTIVE?'':' Le paiement en ligne ouvrira très prochainement.'}`],
  ...(cfg.warranty.ok&&has(cfg.warranty.v)?[['Que se passe-t-il si le produit est défectueux\u00a0?',`Il est garanti ${cfg.warranty.short?cfg.warranty.short.split('·')[0].trim():''} à compter du retrait du colis. Contactez-nous avec votre référence de commande : un produit reconnu défectueux est échangé contre un produit identique. Un produit fonctionnel mais incompatible avec votre matériel n’est ni repris ni échangé.`]]:[]),
- ['Que faire si mon paiement est refusé ?','Une commande n’est confirmée qu’après validation du paiement par notre prestataire. Vérifiez que le solde de votre compte Mobile Money couvre le prix et les frais de paiement, puis réessayez. Si votre compte a été débité sans confirmation, ne payez pas une seconde fois : contactez-nous avec la référence affichée.']
+ ['Que faire si mon paiement est refusé ?','Une commande n’est confirmée qu’après validation du paiement par notre prestataire. Vérifiez que votre carte autorise les paiements en ligne et son plafond, ou le solde de votre compte Mobile Money, puis réessayez. Si votre compte a été débité sans confirmation, ne payez pas une seconde fois : contactez-nous avec la référence affichée.']
 ]}
 
 /* ---------- Contacts ---------- */
@@ -292,7 +292,7 @@ ${rv.length?`<a class="rate" href="#avis"><span class="stars" aria-hidden="true"
 <div class="qrow"><div class="qty" role="group" aria-label="Quantité"><button data-act="sq" data-d="-1" aria-label="Diminuer la quantité">−</button><output id="selq" aria-live="polite">${selQty}</output><button data-act="sq" data-d="1" aria-label="Augmenter la quantité">+</button></div><button class="btn sec" data-act="add" id="addbtn"${p?'':' disabled'}>Ajouter au panier</button></div>
 <div class="ctas"><button class="btn wide" data-act="buy"${p?'':' disabled'}>Acheter maintenant</button></div>
 <p class="stat"><span class="dot ${PAY_ACTIVE&&p?'on':'off'}"></span>${PAY_ACTIVE&&p?'Disponible':'Ouverture des commandes très prochainement'}</p>
-<div class="trust"><div>${ic('lock')}<span><b>Paiement sécurisé</b>Mobile Money, page sécurisée</span></div><div>${ic('truck')}<span><b>Livraison</b>Options et délai selon votre adresse</span></div><div>${ic('chat')}<span><b>Aide avant achat</b>Envoyez-nous l’étiquette de votre adaptateur</span></div><div>${ic('shield')}<span><b>Garantie</b>${w?esc(c.warranty.short||'Voir les conditions'):'Conditions précisées à l’ouverture'}</span></div></div>
+<div class="trust"><div>${ic('lock')}<span><b>Paiement sécurisé</b>Carte ou Mobile Money, page sécurisée</span></div><div>${ic('truck')}<span><b>Livraison</b>Options et délai selon votre adresse</span></div><div>${ic('chat')}<span><b>Aide avant achat</b>Envoyez-nous l’étiquette de votre adaptateur</span></div><div>${ic('shield')}<span><b>Garantie</b>${w?esc(c.warranty.short||'Voir les conditions'):'Conditions précisées à l’ouverture'}</span></div></div>
 <div class="acc">
 <details open><summary>Description</summary><div class="in"><p>Ce mini-onduleur s’installe entre l’adaptateur de votre routeur et le routeur lui-même. Tant que le courant est là, il alimente le routeur et recharge sa batterie. Quand le courant coupe, la batterie prend le relais et le Wi-Fi reste allumé.</p><p>Avec le câble séparateur fourni, il alimente aussi un boîtier fibre (ONU) en 12 V, dans la limite de 2 A au total.</p></div></details>
 <details><summary>Caractéristiques techniques</summary><div class="in">${specTable()}</div></details>
@@ -336,7 +336,7 @@ ${rv.length?`<section class="band soft" id="avis"><div class="reviews"><h2>Avis 
 <section class="band final"><div class="fin"><div class="card"><img src="img/g-face.webp" alt="Mini-onduleur WGP UPS1202A" loading="lazy"></div>
 <div><h2>Ne perdez plus votre connexion à chaque coupure.</h2><p>Un petit boîtier, deux minutes d’installation, et votre routeur reste allumé quand le courant saute.</p>
 <div class="hcta"><button class="btn" data-act="buy"${p?'':' disabled'}>${p?'Commander maintenant':'Bientôt disponible'}</button><div class="hp">${p?fcfa(p):''}<small>${p?'Livraison précisée à la commande':''}</small></div></div>
-<div class="badges"><span>${ic('battery')}3 à 4 h d’autonomie*</span><span>${ic('lock')}Paiement Mobile Money</span>${w?`<span>${ic('shield')}Garantie ${esc(wm)}</span>`:''}<span>${ic('chat')}Aide à la compatibilité</span></div></div></div></section>
+<div class="badges"><span>${ic('battery')}3 à 4 h d’autonomie*</span><span>${ic('lock')}Carte ou Mobile Money</span>${w?`<span>${ic('shield')}Garantie ${esc(wm)}</span>`:''}<span>${ic('chat')}Aide à la compatibilité</span></div></div></div></section>
 
 <section class="band${rv.length||OWNER?'':' soft'}" id="questions"><div class="wrap"><h2 class="center">Questions fréquentes</h2><div class="faq">${faqs().map(([q,a],i)=>`<details${i?'':' open'}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></div></section>
 
@@ -362,9 +362,9 @@ function sumHTML(){const p=price(),f=fee(),q=cart.qty,ok=shipOK()&&f!==null,I=im
  return `<div class="line" style="grid-template-columns:64px minmax(0,1fr) auto"><div class="thumb" style="width:64px;height:64px"><img src="${I[0][0]}" alt=""></div><div><b>${esc(cfg.product.name)}</b><p class="small mute">12 V – 2 A · Noir · Quantité ${q}</p></div><div class="amt">${p?fcfa(p*q):'—'}</div></div>
 <dl class="tot" style="margin-top:18px"><dt>Sous-total</dt><dd>${p?fcfa(p*q):'À confirmer'}</dd><dt>Livraison</dt><dd>${shipOK()?(f===null?'À confirmer':f===0?'Incluse':fcfa(f)):'Selon l’adresse'}</dd><dt class="grand">Total (XAF)</dt><dd class="grand">${p&&ok?fcfa(p*q+f):'—'}</dd></dl>`}
 function payArea(){const p=price(),f=fee(),ok=!!(p&&f!==null&&shipOK()),tot=ok?p*cart.qty+f:null;
- const pm='momo';
- const head=`<div class="pms" role="radiogroup" aria-label="Moyen de paiement"><label class="pm sel"><input type="radio" name="pm" value="momo" checked>${ic('phone')}<span><b>Mobile Money</b>Airtel Money, Moov Money</span></label></div><p class="small mute" style="margin-top:10px">Vous validez le paiement sur la page sécurisée ${providerOK()?'de '+esc(cfg.pay.provider):'du prestataire de paiement'}, puis sur votre téléphone. Votre code Mobile Money n’est jamais saisi sur ce site.</p>`;
- if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':PAY_PRIV?'<p class="testban" style="margin-top:12px">Paiement réel, visible par vous seul : tout paiement est réellement débité</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">Les frais du prestataire de paiement s’ajoutent à ce total selon l’opérateur choisi ; leur montant s’affiche sur la page de paiement, avant toute validation.</p>`;
+ const pm=form.pm||'carte';
+ const head=`<div class="pms" role="radiogroup" aria-label="Moyen de paiement"><label class="pm${pm==='carte'?' sel':''}"><input type="radio" name="pm" value="carte"${pm==='carte'?' checked':''}>${ic('card')}<span><b>Carte bancaire</b>Visa, Mastercard</span></label><label class="pm${pm==='momo'?' sel':''}"><input type="radio" name="pm" value="momo"${pm==='momo'?' checked':''}>${ic('phone')}<span><b>Mobile Money</b>Airtel Money, Moov Money</span></label></div><p class="small mute" style="margin-top:10px">Vous validez le paiement sur la page sécurisée ${providerOK()?'de '+esc(cfg.pay.provider):'du prestataire de paiement'}. Aucune donnée de carte n’est saisie sur ce site.</p>`;
+ if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':PAY_PRIV?'<p class="testban" style="margin-top:12px">Paiement réel, visible par vous seul : tout paiement est réellement débité</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">Les frais du prestataire de paiement s’ajoutent à ce total selon le moyen choisi ; leur montant s’affiche sur la page de paiement, avant toute validation.</p>`;
  if(OWNER&&cfg.test.enabled)return head+`<div class="testbox"><b>Mode test</b><p class="small">Visible uniquement par vous. Aucune transaction réelle.</p><div class="fl"><label for="simres">Réponse simulée du prestataire</label><select id="simres"><option value="confirme">Paiement confirmé</option><option value="refuse">Paiement refusé</option><option value="annule">Paiement annulé</option><option value="attente">Paiement en attente</option></select></div></div><button class="btn wide" style="margin-top:16px" type="submit"${ok?'':' disabled'}>Simuler le paiement${ok?' de '+fcfa(tot):''}</button>`;
  return head+`<button class="btn wide" style="margin-top:16px" type="button" disabled>Paiement bientôt disponible</button><p class="small mute" style="margin-top:10px">Le paiement en ligne ouvrira très prochainement : aucune somme ne peut être débitée pour l’instant.</p>`}
 function pgCheckout(){if(!cart.qty)return `<section class="band"><div class="wrap narrow"><h1>Votre panier est vide</h1><p style="margin-top:24px"><a class="btn" href="#">Voir le produit</a></p></div></section>`;
@@ -461,14 +461,14 @@ const PAGES={commande:pgCheckout,'paiement-confirme':()=>pgRes('confirme'),'paie
 const route=()=>{const h=decodeURIComponent(location.hash.slice(1));return PAGES[h]?{p:h}:{p:'',a:h==='panier'?'':h,cart:h==='panier'}};
 function chrome(){const n=cfg.shop.name||'Boutique';$('#brand').textContent=n;
  const cn=$('#cartn');cn.textContent=cart.qty;cn.hidden=!cart.qty;
- $('#ann').innerHTML=`<span>${PAY_ACTIVE?'Paiement par Mobile Money':'Ouverture des commandes très prochainement'}</span><span>Livraison calculée selon votre adresse</span><span>Aide à la compatibilité avant achat</span>`;
+ $('#ann').innerHTML=`<span>${PAY_ACTIVE?'Paiement par carte ou Mobile Money':'Ouverture des commandes très prochainement'}</span><span>Livraison calculée selon votre adresse</span><span>Aide à la compatibilité avant achat</span>`;
  const miss=checks().filter(x=>!x.ok).length;
  $('#obar').innerHTML=OWNER?`<div class="obar"><div><span class="dot"></span><b>Aperçu propriétaire</b><span>${miss} point${miss>1?'s':''} à compléter avant l’ouverture${dbState==='slow'?' · configuration partagée lente à répondre':''}</span><a href="#admin">Ouvrir l’administration</a></div></div>`:'';
  $('#foot').innerHTML=`<div class="fgrid"><div><a class="logo" href="#">${$('.logo svg').outerHTML}<span>${esc(n)}</span></a><p style="margin-top:14px;max-width:24em">${esc(cfg.shop.tagline)}.</p></div>
 <div><h3>Boutique</h3><ul><li><a href="#produit">Le produit</a></li><li><a href="#autonomie">Autonomie</a></li><li><a href="#compatibilite">Compatibilité</a></li><li><a href="#questions">Questions fréquentes</a></li></ul></div>
 <div><h3>Informations</h3><ul>${LEGALS.map(([h,t])=>`<li><a href="#${h}">${t}</a></li>`).join('')}</ul></div>
 <div><h3>Service client</h3><ul>${contacts().map(([k,v])=>`<li>${k} : ${v}</li>`).join('')||'<li>Coordonnées publiées à l’ouverture</li>'}<li><a href="#contact">Nous écrire</a></li></ul></div></div>
-<div class="fbot"><span>Paiement par Mobile Money, sur la page sécurisée du prestataire. Aucun code Mobile Money n’est saisi ni conservé sur ce site.</span><span>© ${new Date().getFullYear()} ${esc(n)}</span></div>`;
+<div class="fbot"><span>Paiement par carte bancaire ou Mobile Money, sur la page sécurisée du prestataire. Aucune donnée de carte n’est saisie ni conservée sur ce site.</span><span>© ${new Date().getFullYear()} ${esc(n)}</span></div>`;
  const I=imgs(),p=price();
  $('#sbar').innerHTML=`<img src="${I[0][0]}" alt=""><div><b>${esc(cfg.product.name)}</b>${p?fcfa(p):'Prix bientôt disponible'}</div><button class="btn sm" data-act="buy"${p?'':' disabled'}>Acheter</button>`;
  if(drawerOpen)$('#drawer').innerHTML=drawerHTML()}
@@ -542,7 +542,7 @@ document.addEventListener('change',async e=>{if(e.target.id!=='upl'||!ASSETS)ret
 document.addEventListener('submit',e=>{if(e.target.id!=='coform')return;e.preventDefault();
  const errs=validate();$('#ferr').textContent=errs.join(' ');if(errs.length)return;
  const p=price(),f=fee(),q=cart.qty;if(!(p&&f!==null&&q&&shipOK()))return;
- const o={ref:mkRef(),qty:q,unit:p,fee:f,total:p*q+f,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:'momo',at:new Date().toISOString(),status:'attente'};
+ const o={ref:mkRef(),qty:q,unit:p,fee:f,total:p*q+f,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:form.pm||'carte',at:new Date().toISOString(),status:'attente'};
  if(PAY_ACTIVE){if(payBusy)return;payBusy=true;refreshCheckout();
    fetch('/api/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm})})
    .then(r=>r.json().then(j=>({ok:r.ok,j}))).then(({ok,j})=>{if(!ok||!j.url)throw new Error(j.error||'Le paiement n’a pas pu être lancé. Réessayez dans un instant.');
