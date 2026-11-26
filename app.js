@@ -15,7 +15,7 @@ const blob=id=>'/_blob/'+esc(id);
 
 /* Le paiement n'est déclaré actif qu'après ouverture du compte marchand, intégration de la page de paiement hébergée
    et vérification de la confirmation côté serveur (notification du prestataire). Ce n'est pas encore le cas. */
-let PAY_ACTIVE=false,PAY_TEST=false,payBusy=false;
+let PAY_ACTIVE=false,PAY_TEST=false,PAY_PRIV=false,payBusy=false;
 const WH=22.2,EFF=[0.75,0.85],MAXW=24;
 
 const P={
@@ -364,7 +364,7 @@ function sumHTML(){const p=price(),f=fee(),q=cart.qty,ok=shipOK()&&f!==null,I=im
 function payArea(){const p=price(),f=fee(),ok=!!(p&&f!==null&&shipOK()),tot=ok?p*cart.qty+f:null;
  const pm=form.pm||'carte';
  const head=`<div class="pms" role="radiogroup" aria-label="Moyen de paiement"><label class="pm${pm==='carte'?' sel':''}"><input type="radio" name="pm" value="carte"${pm==='carte'?' checked':''}>${ic('card')}<span><b>Carte bancaire</b>Visa, Mastercard</span></label><label class="pm${pm==='momo'?' sel':''}"><input type="radio" name="pm" value="momo"${pm==='momo'?' checked':''}>${ic('phone')}<span><b>Mobile Money</b>Airtel Money, Moov Money</span></label></div><p class="small mute" style="margin-top:10px">Vous validez le paiement sur la page sécurisée ${providerOK()?'de '+esc(cfg.pay.provider):'du prestataire de paiement'}. Aucune donnée de carte n’est saisie sur ce site.</p>`;
- if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">D’éventuels frais du prestataire de paiement s’affichent sur la page de paiement, avant toute validation.</p>`;
+ if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':PAY_PRIV?'<p class="testban" style="margin-top:12px">Paiement réel, visible par vous seul : tout paiement est réellement débité</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">D’éventuels frais du prestataire de paiement s’affichent sur la page de paiement, avant toute validation.</p>`;
  if(OWNER&&cfg.test.enabled)return head+`<div class="testbox"><b>Mode test</b><p class="small">Visible uniquement par vous. Aucune transaction réelle.</p><div class="fl"><label for="simres">Réponse simulée du prestataire</label><select id="simres"><option value="confirme">Paiement confirmé</option><option value="refuse">Paiement refusé</option><option value="annule">Paiement annulé</option><option value="attente">Paiement en attente</option></select></div></div><button class="btn wide" style="margin-top:16px" type="submit"${ok?'':' disabled'}>Simuler le paiement${ok?' de '+fcfa(tot):''}</button>`;
  return head+`<button class="btn wide" style="margin-top:16px" type="button" disabled>Paiement bientôt disponible</button><p class="small mute" style="margin-top:10px">Le paiement en ligne ouvrira très prochainement : aucune somme ne peut être débitée pour l’instant.</p>`}
 function pgCheckout(){if(!cart.qty)return `<section class="band"><div class="wrap narrow"><h1>Votre panier est vide</h1><p style="margin-top:24px"><a class="btn" href="#">Voir le produit</a></p></div></section>`;
@@ -564,7 +564,7 @@ async function checkPay(manual){const o=order;if(!o||!o.session||o.status!=='att
   if(t!==null){LS.set('kt_paytest',t==='1'?1:0);u.searchParams.delete('paytest');history.replaceState(null,'',u.pathname+u.search+u.hash)}
   if(!/^https?:$/.test(location.protocol)||window.claude)return;
   const r=await fetch('/api/config',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
-  PAY_TEST=!!j.test;PAY_ACTIVE=!!j.active&&(!j.test||LS.get('kt_paytest',0)===1);
+  PAY_TEST=!!j.test;PAY_PRIV=!!j.active&&!j.open;PAY_ACTIVE=!!j.active&&(!!j.open||LS.get('kt_paytest',0)===1);
   if(PAY_ACTIVE)render();if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente')checkPay()}catch(e){}})();
 window.addEventListener('hashchange',()=>{if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente'){pollN=0;checkPay()}});
 

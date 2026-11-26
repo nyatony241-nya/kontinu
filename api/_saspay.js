@@ -9,6 +9,8 @@ export const CURRENCY = 'XAF';
 
 export const apiKey = () => process.env.SASPAY_API_KEY || '';
 export const isTest = () => apiKey().startsWith('sk_test_');
+// Ouverture au public d'une clé réelle : uniquement si SASPAY_PUBLIC=1 est posé dans Vercel (décision du propriétaire).
+export const isPublic = () => process.env.SASPAY_PUBLIC === '1';
 export const appUrl = () => (process.env.APP_URL || 'https://boutique-kontinu.vercel.app').replace(/\/+$/, '');
 
 // Le bac à sable est choisi par l'hôte : une clé sk_test_ va par défaut vers sandbox-api.
