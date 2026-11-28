@@ -432,3 +432,5 @@ body.hasbar{padding-bottom:76px}
 .risk .ic{color:var(--brand)}
 .upsell{margin-bottom:14px;padding:12px 14px;border-radius:14px;background:var(--mint);display:flex;gap:12px;align-items:center;justify-content:space-between;font-size:14px;line-height:1.4}
 @media(max-width:760px){.pains,.offer-grid,.risk{grid-template-columns:minmax(0,1fr)}.agit{font-size:18px}}
+.sold{display:flex;gap:8px;align-items:center;margin-top:14px;font-size:15px}
+.sold .ic{color:var(--brand);flex:none}
