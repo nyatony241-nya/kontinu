@@ -34,7 +34,7 @@ export async function POST(request) {
     customer_email: email,
     customer_phone: phoneDigits.startsWith('+') ? phoneDigits : `+${phoneDigits}`,
     return_url: `${appUrl()}/#paiement-attente`,
-    metadata: { ref, qty: String(qty), country, city, phone: phoneDigits, moyen_choisi: pm, remise_pack: String(pack), remise_bienvenue: String(disc) }
+    metadata: { ref, qty: String(qty), country, city, phone: phoneDigits, moyen_choisi: pm, remise_pack: String(pack), remise_promo_24h: String(disc) }
   };
 
   try {

@@ -2,11 +2,11 @@
 // La clé API reste ici, côté serveur : jamais envoyée au navigateur ni écrite dans le dépôt.
 import crypto from 'node:crypto';
 
-export const PRICE = 10000;          // prix unitaire, XAF
-export const PACK2 = 18000;          // pack duo : 2 produits, XAF
-export const PROMO_PCT = 5;          // offre de bienvenue
-export const PROMO_MS = 30 * 60 * 1000; // durée de l'offre
-const PROMO_GRACE_MS = 2 * 60 * 1000;  // tolérance réseau au moment du clic
+export const PRICE = 22000;          // prix normal unitaire, XAF
+export const OFFER = 10000;          // prix promo unitaire (24 h après la première visite), XAF
+export const PACK2 = 18000;          // pack duo pendant la promo : 2 produits, XAF
+export const PROMO_MS = 24 * 60 * 60 * 1000; // durée du prix promo
+const PROMO_GRACE_MS = 10 * 60 * 1000; // tolérance au moment du clic
 export const SHIP_FEE = 0;           // retrait AIC Cargo, Libreville : inclus dans le prix
 export const MAX_QTY = 5;
 export const CURRENCY = 'XAF';
@@ -62,13 +62,14 @@ export function webhookIsValid(rawBody, signature, timestamp, secret) {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-// Prix : pack duo par paire, puis remise de bienvenue si le jeton signé a moins de 30 minutes.
+// Prix : 22 000 l'unité ; pendant les 24 h du jeton signé, 10 000 l'unité et 18 000 la paire.
 export function computeTotal(qty, promo) {
-  const pairs = Math.floor(qty / 2);
   const list = PRICE * qty;
-  const base = pairs * PACK2 + (qty - 2 * pairs) * PRICE;
-  const disc = promoIsValid(promo) ? Math.round(base * PROMO_PCT / 100) : 0;
-  return { list, pack: list - base, disc, total: base - disc + SHIP_FEE };
+  if (!promoIsValid(promo)) return { list, disc: 0, pack: 0, total: list + SHIP_FEE };
+  const pairs = Math.floor(qty / 2);
+  const base = pairs * PACK2 + (qty - 2 * pairs) * OFFER;
+  const disc = (PRICE - OFFER) * qty;
+  return { list, disc, pack: list - disc - base, total: base + SHIP_FEE };
 }
 
 // Jeton d'offre de bienvenue : signé côté serveur, impossible à fabriquer sans la clé.
