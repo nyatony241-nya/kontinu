@@ -3,6 +3,10 @@
 import crypto from 'node:crypto';
 
 export const PRICE = 10000;          // prix unitaire, XAF
+export const PACK2 = 18000;          // pack duo : 2 produits, XAF
+export const PROMO_PCT = 5;          // offre de bienvenue
+export const PROMO_MS = 30 * 60 * 1000; // durée de l'offre
+const PROMO_GRACE_MS = 2 * 60 * 1000;  // tolérance réseau au moment du clic
 export const SHIP_FEE = 0;           // retrait AIC Cargo, Libreville : inclus dans le prix
 export const MAX_QTY = 5;
 export const CURRENCY = 'XAF';
@@ -55,5 +59,29 @@ export function webhookIsValid(rawBody, signature, timestamp, secret) {
   if (Math.abs(Date.now() / 1000 - Number(timestamp)) > 300) return false;
   const expected = crypto.createHmac('sha256', secret).update(`${timestamp}.${rawBody}`).digest('hex');
   const a = Buffer.from(expected, 'utf8'), b = Buffer.from(String(signature).trim().toLowerCase(), 'utf8');
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
+// Prix : pack duo par paire, puis remise de bienvenue si le jeton signé a moins de 30 minutes.
+export function computeTotal(qty, promo) {
+  const pairs = Math.floor(qty / 2);
+  const list = PRICE * qty;
+  const base = pairs * PACK2 + (qty - 2 * pairs) * PRICE;
+  const disc = promoIsValid(promo) ? Math.round(base * PROMO_PCT / 100) : 0;
+  return { list, pack: list - base, disc, total: base - disc + SHIP_FEE };
+}
+
+// Jeton d'offre de bienvenue : signé côté serveur, impossible à fabriquer sans la clé.
+const promoKey = () => crypto.createHash('sha256').update('kontinu-promo|' + (process.env.PROMO_SECRET || apiKey())).digest();
+export function signPromo(iat) {
+  return crypto.createHmac('sha256', promoKey()).update(`promo:${iat}`).digest('hex');
+}
+export function promoIsValid(promo) {
+  if (!promo || !apiKey()) return false;
+  const iat = Number(promo.iat), sig = String(promo.sig || '');
+  if (!Number.isFinite(iat) || !/^[a-f0-9]{64}$/.test(sig)) return false;
+  const age = Date.now() - iat;
+  if (age < -60000 || age > PROMO_MS + PROMO_GRACE_MS) return false;
+  const a = Buffer.from(signPromo(iat)), b = Buffer.from(sig);
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }

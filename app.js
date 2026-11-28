@@ -66,7 +66,7 @@ const IMGS=[
 const MF='Données du fabricant (fiche WGP UPS1202A)';
 const DEF={
  shop:{name:'Kontinu',confirmed:true,tagline:'Alimentation de secours pour votre Wi-Fi'},
- product:{name:'Mini-onduleur 12 V pour routeur Wi-Fi',brand:'WGP',ref:'UPS1202A',price:'10000',compare:'',maxQty:'5',pitch:'Quand le courant coupe, votre routeur reste allumé : le mini-onduleur prend le relais automatiquement et garde votre Wi-Fi actif.'},
+ product:{name:'Mini-onduleur 12 V pour routeur Wi-Fi',brand:'WGP',ref:'UPS1202A',price:'10000',pack2:'18000',compare:'',maxQty:'5',pitch:'Quand le courant coupe, votre routeur reste allumé : le mini-onduleur prend le relais automatiquement et garde votre Wi-Fi actif.'},
  ship:{country:'GA',city:'Libreville',method:'Retrait chez notre partenaire de transport',fee:'0',days:'7',type:'ouvrés',start:'paiement',extra:'jusqu’à deux semaines selon les aléas du transport et des formalités douanières',logo:'img/aic-cargo.webp',office:'AIC Cargo (Africa International Cargo)',address:'Petit Paris, au Motel, juste à côté de DHL, Libreville',instructions:'Présentez une pièce d’identité au nom de la commande et votre référence de commande. Pour toute question, contactez uniquement notre service client : notre partenaire de transport ne traite pas les demandes des clients.',contactBy:''},
  support:{phone:'',whatsapp:'',email:'',hours:'',zone:''},
  seller:{name:'KONTINU',form:'',rccm:'',nif:'',address:'',rep:''},
@@ -109,10 +109,12 @@ Article 2 – Produit
 Le produit proposé est le mini-onduleur WGP UPS1202A (sortie 12 V – 2 A, batterie 22,2 Wh). Ses caractéristiques sont celles communiquées par le fabricant et reprises sur la fiche produit. Il fournit une alimentation de secours à un appareil compatible : il ne rétablit pas l’électricité et ne garantit pas l’accès à Internet si le réseau de l’opérateur est interrompu.
 
 Article 3 – Compatibilité
-Il appartient au client de vérifier avant la commande que son appareil fonctionne en 12 V, avec une intensité de 2 A maximum et une fiche compatible. Le service client peut l’aider à le vérifier sur demande.
+Il appartient au client de vérifier avant la commande que son appareil fonctionne en 12 V, avec une intensité de 2 A maximum et une fiche compatible. Le service client peut l’aider à le vérifier sur demande. Si, malgré cette vérification, le produit ne fonctionne pas avec le matériel du client, la garantie de remboursement de l’article 7 s’applique.
 
 Article 4 – Prix
 Les prix sont indiqués en francs CFA (XAF). Le retrait au point de retrait est inclus dans le prix. Les frais du prestataire de paiement, qui dépendent du moyen choisi (carte ou Mobile Money), s’ajoutent au prix et sont affichés sur la page de paiement avant toute validation.
+Pack duo : deux produits pour 18 000 FCFA ; la remise s’applique par paire de produits.
+Offre de bienvenue : une remise de 5 % sur le total de la commande est accordée lorsque le paiement est lancé dans les 30 minutes qui suivent la première visite sur le site depuis un même navigateur. Elle se cumule avec le pack duo. Passé ce délai, le prix normal s’applique.
 
 Article 5 – Commande et paiement
 Le paiement s’effectue par carte bancaire ou par Mobile Money (Airtel Money, Moov Money), sur la page sécurisée du prestataire de paiement. Aucune donnée de carte ni aucun code Mobile Money n’est saisi ni conservé par le vendeur. La commande n’est confirmée qu’après validation du paiement par le prestataire ; une référence de commande est alors communiquée au client.
@@ -120,8 +122,9 @@ Le paiement s’effectue par carte bancaire ou par Mobile Money (Airtel Money, M
 Article 6 – Livraison et retrait
 Les destinations desservies, les modes de livraison, les frais et les délais sont affichés lors de la commande. Pour un retrait en point relais, le délai annoncé est exprimé en jours ouvrés à compter de la confirmation du paiement. Il est indicatif et peut atteindre deux semaines selon les aléas du transport et des formalités douanières. Le client est contacté à l’arrivée du colis et le retire sur présentation d’une pièce d’identité au nom indiqué lors de la commande. Le transporteur partenaire ne traite pas les demandes des clients : toute question est adressée au service client du vendeur.
 
-Article 7 – Échanges
-Le produit n’est ni repris ni remboursé pour convenance personnelle ou pour incompatibilité avec le matériel du client. Un produit défectueux est échangé dans les conditions de la politique de retours et de la garantie.
+Article 7 – Échanges et remboursement
+Remboursement en cas d’incompatibilité : si le produit ne fonctionne pas avec le matériel du client, celui-ci peut le rapporter dans les 7 jours qui suivent le retrait du colis, complet (câble séparateur, notice, boîte d’origine) et en bon état, selon les modalités indiquées par le service client. Le prix payé pour le produit est remboursé par Mobile Money dans les 7 jours qui suivent la réception du retour ; les frais du prestataire de paiement ne sont pas remboursés.
+En dehors de ce cas, le produit n’est ni repris ni remboursé pour convenance personnelle. Un produit défectueux est échangé dans les conditions de la politique de retours et de la garantie.
 
 Article 8 – Garantie
 Le produit est garanti 3 mois à compter du retrait du colis, dans les conditions décrites sur la page Garantie.
@@ -143,15 +146,15 @@ Conservation : vos données sont conservées le temps nécessaire au traitement 
 
 Sur ce site : votre panier et les champs du formulaire de commande sont enregistrés dans votre navigateur pour vous éviter de les saisir à nouveau. Les polices de caractères sont chargées depuis Google Fonts.
 
-Vos droits : vous pouvez demander à consulter, corriger ou supprimer vos données en contactant le service client.`,returns:`Les produits sont échangés uniquement en cas de défaut.
+Vos droits : vous pouvez demander à consulter, corriger ou supprimer vos données en contactant le service client.`,returns:`Remboursement sous 7 jours si le produit ne marche pas avec votre box : rapportez-le dans les 7 jours qui suivent le retrait du colis, complet (câble séparateur, notice, boîte d’origine) et en bon état. Contactez d’abord le service client avec votre référence de commande : il vous indique où le rapporter. Le prix payé pour le produit vous est remboursé par Mobile Money dans les 7 jours qui suivent la réception du retour. Les frais du prestataire de paiement ne sont pas remboursés.
 
 Produit défectueux : si le mini-onduleur ne fonctionne pas au retrait ou tombe en panne pendant la garantie de 3 mois, contactez le service client avec votre référence de commande et une description du problème, avec une photo ou une vidéo si possible. Après vérification, il est échangé contre un produit identique.
 
 Le produit doit être rapporté complet, avec le câble séparateur, la notice et la boîte d’origine, selon les modalités indiquées par le service client.
 
-Ne sont ni repris ni échangés : un produit en bon état de fonctionnement retourné par changement d’avis, un produit incompatible avec votre matériel, un produit endommagé par une chute, l’humidité, un branchement non conforme ou l’ouverture du boîtier. Vérifiez la compatibilité avant de commander.
+Ne sont ni repris ni échangés : un produit retourné par simple changement d’avis, un produit rapporté après le délai de 7 jours ou incomplet, un produit endommagé par une chute, l’humidité, un branchement non conforme ou l’ouverture du boîtier. Vérifiez la compatibilité avant de commander : nous pouvons le faire avec vous.
 
-Les produits livrés ne sont pas remboursés : un produit défectueux est échangé.`,claims:`Pour toute réclamation, contactez le service client par WhatsApp ou par e-mail en indiquant votre référence de commande, votre nom et une description du problème, avec une photo si possible.
+En dehors du remboursement en cas d’incompatibilité, un produit défectueux est échangé, et non remboursé.`,claims:`Pour toute réclamation, contactez le service client par WhatsApp ou par e-mail en indiquant votre référence de commande, votre nom et une description du problème, avec une photo si possible.
 
 Nous accusons réception de votre demande et vous proposons une solution conforme aux conditions générales de vente, à la politique de retours et à la garantie.`},
  test:{enabled:true}
@@ -180,6 +183,17 @@ let flowS='cut',selQty=1,gi=0,compatV={v:'',a:'',c:''},auto={w:'8',p:'r'},showJs
 const price=()=>{const n=num(cfg.product.price);return n&&n>0?n:null};
 const compare=()=>{const n=num(cfg.product.compare),p=price();return n&&p&&n>p?n:null};
 const fee=()=>{const n=num(cfg.ship.fee);return n!==null&&n>=0?n:null};
+const PROMO_PCT=5,PROMO_MS=30*60*1000;
+const pack2=()=>{const n=num(cfg.product.pack2);return n&&n>0?n:null};
+function baseTotal(q){const p=price();if(!p)return null;const k=pack2(),pairs=k?Math.floor(q/2):0;return pairs*k+(q-2*pairs)*p}
+let promoTok=LS.get('kt_promo',null);
+const promoLeft=()=>promoTok&&promoTok.end?Math.max(0,promoTok.end-Date.now()):0;
+const promoOn=()=>promoLeft()>0;
+function calc(q){const p=price(),b=baseTotal(q);if(b===null)return null;const f=fee()||0,d=promoOn()?Math.round(b*PROMO_PCT/100):0;return {list:p*q,pack:p*q-b,sub:b,disc:d,ship:f,total:b-d+f}}
+const mmss=ms=>{const t=Math.ceil(ms/1000);return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
+function priceHTML(){const p=price();if(!p)return 'Prix bientôt disponible';return promoOn()?`${fcfa(Math.round(p*(100-PROMO_PCT)/100))} <s class="small mute" style="font:500 18px var(--f2)">${fcfa(p)}</s>`:fcfa(p)}
+const promoTag=()=>promoOn()?`<span class="ptag">−${PROMO_PCT} % de bienvenue · encore <b class="pt">${mmss(promoLeft())}</b></span>`:'';
+const packLine=()=>pack2()&&price()?`Pack duo : 2 pour ${fcfa(pack2())}`:'';
 const maxQ=()=>Math.max(1,Math.min(20,num(cfg.product.maxQty)||5));
 const imgs=()=>cfg.photos.length?cfg.photos.map(p=>[blob(p.id),p.alt||cfg.product.name]):IMGS.map(([s,a])=>[s,a]);
 const okOuts=()=>cfg.outputs.filter(o=>o.ok&&num(o.v)!==null);
@@ -234,7 +248,10 @@ function faqs(){const s=cfg.ship;return[
  ['Comment entretenir la batterie ?','Laissez l’interrupteur sur ON : la batterie ne se charge qu’en position ON. Avant un rangement prolongé, chargez-la complètement, puis rechargez-la tous les 3 à 5 mois si vous ne l’utilisez pas, selon les recommandations du fabricant.'],
  ['Où et quand vais-je recevoir ma commande ?','Les modes de livraison, les frais et le délai disponibles pour votre adresse s’affichent à l’étape de commande, avant le paiement. Le délai annoncé est indicatif et peut s’allonger selon les aléas du transport. Lorsque votre colis est disponible au point de retrait, nous vous contactons avec les informations nécessaires pour le retirer.'],
  ['Quels moyens de paiement acceptez-vous ?',`Par carte bancaire (Visa, Mastercard) ou par Mobile Money (Airtel Money, Moov Money), sur la page de paiement sécurisée de notre prestataire. Aucun numéro de carte n’est saisi ni conservé sur notre site.${PAY_ACTIVE?'':' Le paiement en ligne ouvrira très prochainement.'}`],
- ...(cfg.warranty.ok&&has(cfg.warranty.v)?[['Que se passe-t-il si le produit est défectueux\u00a0?',`Il est garanti ${cfg.warranty.short?cfg.warranty.short.split('·')[0].trim():''} à compter du retrait du colis. Contactez-nous avec votre référence de commande : un produit reconnu défectueux est échangé contre un produit identique. Un produit fonctionnel mais incompatible avec votre matériel n’est ni repris ni échangé.`]]:[]),
+ ...(cfg.warranty.ok&&has(cfg.warranty.v)?[['Que se passe-t-il si le produit est défectueux\u00a0?',`Il est garanti ${cfg.warranty.short?cfg.warranty.short.split('·')[0].trim():''} à compter du retrait du colis. Contactez-nous avec votre référence de commande : un produit reconnu défectueux est échangé contre un produit identique. S’il fonctionne mais ne marche pas avec votre box, vous êtes remboursé sous 7 jours (voir la question suivante).`]]:[]),
+ ['Et si le mini-onduleur ne marche pas avec ma box\u00a0?','Rapportez-le dans les 7 jours qui suivent le retrait, complet, en bon état et dans sa boîte d’origine : le prix payé pour le produit vous est remboursé par Mobile Money. Les frais du prestataire de paiement ne sont pas remboursés. Contactez d’abord notre service client avec votre référence de commande.'],
+ ['Comment fonctionne le pack duo\u00a0?','Deux mini-onduleurs pour 18 000 FCFA au lieu de 20 000 FCFA : un pour la maison, un pour le bureau ou pour un proche. Le prix s’applique automatiquement dès deux produits dans le panier.'],
+ ['Comment fonctionne l’offre de bienvenue\u00a0?','Lors de votre première visite, une remise de 5 % vous est réservée pendant 30 minutes. Elle s’applique automatiquement au total, pack duo compris, si vous lancez le paiement avant la fin du compte à rebours. Le compte à rebours ne repart pas de zéro si vous rechargez la page ; ensuite, le prix normal s’applique.'],
  ['Que faire si mon paiement est refusé ?','Une commande n’est confirmée qu’après validation du paiement par notre prestataire. Vérifiez que votre carte autorise les paiements en ligne et son plafond, ou le solde de votre compte Mobile Money, puis réessayez. Si votre compte a été débité sans confirmation, ne payez pas une seconde fois : contactez-nous avec la référence affichée.']
 ]}
 
@@ -263,11 +280,14 @@ function pgHome(){const c=cfg,p=price(),cp=compare(),I=imgs(),rv=reviews(),avg=r
  return `<section class="hero"><div class="hin"><div class="ht">
 <span class="kicker">${ic('volt')}Spécial coupures de courant</span>
 <h1>Le courant coupe, <span class="mark">votre Wi&#8209;Fi reste allumé.</span></h1>
-<p class="sub">Vos appels, vos réunions et vos séries continuent pendant la coupure. Le mini-onduleur prend le relais automatiquement, sans bruit et sans groupe électrogène.</p></div>
+<p class="sub">Plus d’appel WhatsApp coupé en pleine phrase, plus de réunion qui saute, plus de box qui redémarre à chaque coupure. Branchez-le une fois : à la prochaine coupure, votre Wi‑Fi tient 3 à 4 h*, sans bruit et sans groupe électrogène.</p></div>
 <div class="himg"><img src="img/hero.webp" alt="Mini-onduleur WGP branché sur un routeur Wi-Fi"><span class="seal"><span><b class="sb">3 à 4 h</b>d’autonomie<small>pendant la coupure*</small></span></span></div>
-<div class="hc"><ul class="hbul"><li>${ic('check')}<span><b>3 à 4 h d’autonomie</b> pendant la coupure*</span></li><li>${ic('check')}Installé en 2 minutes, sans outil</li><li>${ic('check')}Routeur et boîtier fibre alimentés ensemble</li></ul>
-<div class="hcta"><button class="btn" data-act="buy"${p?'':' disabled'}>${p?'Commander maintenant':'Bientôt disponible'}</button><div class="hp">${p?fcfa(p):''}<small>${p?'Livraison précisée à la commande':''}</small></div></div><p class="fn">* Pour un appareil d’environ 5 W (boîtier fibre ou petit routeur) ; autonomie plus courte avec un équipement plus gourmand ou deux appareils.</p></div></div></section>
-<section class="strip"><div class="in"><div class="it">${ic('battery')}<div>3 à 4 h d’autonomie<span>Selon l’appareil branché</span></div></div><div class="it">${ic('clock')}<div>Installation 2 min<span>Sans outil, sans réglage</span></div></div><div class="it">${ic('shield')}<div>${w?'Garantie '+esc(wm):'Garantie'}<span>${w?'Échange si défectueux':'Conditions à l’ouverture'}</span></div></div><div class="it">${ic('chat')}<div>Aide avant achat<span>Compatibilité vérifiée avec vous</span></div></div></div></section>
+<div class="hc"><ul class="hbul"><li>${ic('check')}<span><b>3 à 4 h d’autonomie</b> pendant la coupure*</span></li><li>${ic('check')}Installé en 2 minutes, sans outil</li><li>${ic('check')}Routeur et boîtier fibre alimentés ensemble</li><li>${ic('check')}<span><b>Remboursé sous 7 jours</b> s’il ne marche pas avec votre box</span></li></ul>
+<div class="hcta"><button class="btn" data-act="buy"${p?'':' disabled'}>${p?'Commander maintenant':'Bientôt disponible'}</button><div class="hp">${p?priceHTML():''}<small>${p?packLine():''}</small></div></div>${promoTag()}<p class="fn">* Pour un appareil d’environ 5 W (boîtier fibre ou petit routeur) ; autonomie plus courte avec un équipement plus gourmand ou deux appareils.</p></div></div></section>
+<section class="strip"><div class="in"><div class="it">${ic('battery')}<div>3 à 4 h d’autonomie<span>Selon l’appareil branché</span></div></div><div class="it">${ic('clock')}<div>Installation 2 min<span>Sans outil, sans réglage</span></div></div><div class="it">${ic('shield')}<div>${w?'Garantie '+esc(wm):'Garantie'}<span>${w?'Échange si défectueux':'Conditions à l’ouverture'}</span></div></div><div class="it">${ic('refresh')}<div>Remboursé sous 7 jours<span>S’il ne marche pas avec votre box</span></div></div></div></section>
+<section class="band" id="douleur"><div class="wrap"><h2 class="center">Vous connaissez ça&nbsp;?</h2><p class="lead center" style="margin:14px auto 0;max-width:40em">Le courant saute… et tout s’arrête avec lui.</p>
+<ul class="pains"><li>${ic('x')}<span>Votre appel WhatsApp coupe en pleine conversation importante.</span></li><li>${ic('x')}<span>La réunion ou le cours en ligne saute, et il faut tout recommencer.</span></li><li>${ic('x')}<span>La box redémarre à chaque micro-coupure : plusieurs minutes sans Internet, encore et encore.</span></li><li>${ic('x')}<span>Votre forfait mobile fond, parce qu’il faut basculer sur les données.</span></li><li>${ic('x')}<span>Il faut allumer le groupe, avec le bruit et le carburant, juste pour garder Internet.</span></li><li>${ic('x')}<span>Le film des enfants s’arrête, le paiement en ligne échoue au pire moment.</span></li></ul>
+<p class="agit">Chaque coupure vous coûte du temps, du forfait, de l’argent… et parfois un client ou une opportunité.</p><p class="center" style="margin-top:18px"><b>Et si, à la prochaine coupure, votre Wi‑Fi restait simplement allumé&nbsp;?</b></p><p class="center" style="margin-top:16px"><button class="btn" data-go="produit">Voir la solution</button></p></div></section>
 <section class="band" id="benefices"><div class="wrap"><h2 class="center">Ce que ça change pour vous</h2><p class="lead center" style="margin:14px auto 0;max-width:40em">Une coupure ne vous déconnecte plus du monde.</p><div class="bens">
 <div class="ben"><span class="bi">${ic('wifi')}</span><h3>Le Wi&#8209;Fi reste allumé</h3><p>Quand le courant saute, votre routeur continue de diffuser le Wi‑Fi pendant 3 à 4 h. Téléphones et ordinateurs portables restent connectés.</p></div>
 <div class="ben"><span class="bi">${ic('chat')}</span><h3>Vos appels ne coupent plus</h3><p>Appels WhatsApp, réunions en ligne, cours à distance : la conversation continue pendant la coupure.</p></div>
@@ -283,14 +303,14 @@ function pgHome(){const c=cfg,p=price(),cp=compare(),I=imgs(),rv=reviews(),avg=r
 <div class="buy"><p class="brand">${esc(c.product.brand)} · Réf. ${esc(c.product.ref)}</p>
 <h1>${esc(c.product.name)}</h1>
 ${rv.length?`<a class="rate" href="#avis"><span class="stars" aria-hidden="true">${stars(avg)}</span><span>${nf.format(Math.round(avg*10)/10)}/5 · ${rv.length} avis</span></a>`:''}
-<div class="price${p?'':' none'}">${p?fcfa(p):'Prix bientôt disponible'}${cp?`<s class="small mute" style="font:500 18px var(--f2)">${fcfa(cp)}</s>`:''}${p?'<small>Livraison précisée à la commande</small>':''}</div>${p?'':todo('prix de vente')}
+<div class="price${p?'':' none'}">${priceHTML()}${cp&&!promoOn()?`<s class="small mute" style="font:500 18px var(--f2)">${fcfa(cp)}</s>`:''}${p?'<small>Retrait inclus · frais de paiement selon l’opérateur</small>':''}</div>${promoTag()}${p?'':todo('prix de vente')}
 <p class="pitch">${esc(c.product.pitch)}</p>
 <div class="chips"><div class="chip">${ic('volt')}<span><b>12 V · 2 A</b>sortie jack DC</span></div><div class="chip">${ic('battery')}<span><b>3 à 4 h d’autonomie</b>batterie 22,2 Wh</span></div><div class="chip">${ic('split')}<span><b>2 appareils</b>câble séparateur fourni</span></div><div class="chip">${ic('shield')}<span><b>4 protections</b>court-circuit, surcharge…</span></div></div>
 <div class="opt"><p class="lb">Sortie : <b>12 V – 2 A</b></p><div class="pills"><span class="pill" aria-pressed="true">12 V – 2 A</span></div></div>
 <div class="opt"><p class="lb">Couleur : <b>Noir</b></p><div class="pills"><span class="pill" aria-pressed="true"><span class="sw"></span>Noir</span></div></div>
 <div class="qc">${ic('info')}<div><b>Votre routeur est-il en 12 V&nbsp;?</b><p>Regardez l’étiquette de son adaptateur : elle doit indiquer 12V et 2A au maximum. <button class="lnk" data-go="compatibilite">Vérifier en 30 secondes</button></p></div></div>
 <div class="qrow"><div class="qty" role="group" aria-label="Quantité"><button data-act="sq" data-d="-1" aria-label="Diminuer la quantité">−</button><output id="selq" aria-live="polite">${selQty}</output><button data-act="sq" data-d="1" aria-label="Augmenter la quantité">+</button></div><button class="btn sec" data-act="add" id="addbtn"${p?'':' disabled'}>Ajouter au panier</button></div>
-<div class="ctas"><button class="btn wide" data-act="buy"${p?'':' disabled'}>Acheter maintenant</button></div>
+<div class="ctas"><button class="btn wide" data-act="buy"${p?'':' disabled'}>Acheter maintenant</button></div>${p&&pack2()?`<button class="pkb" data-act="pack"><span><b>Pack duo</b> · maison + bureau, ou pour un proche</span><span><b>${fcfa(pack2())}</b> <s class="mute">${fcfa(p*2)}</s></span></button>`:''}
 <p class="stat"><span class="dot ${PAY_ACTIVE&&p?'on':'off'}"></span>${PAY_ACTIVE&&p?'Disponible':'Ouverture des commandes très prochainement'}</p>
 <div class="trust"><div>${ic('lock')}<span><b>Paiement sécurisé</b>Carte ou Mobile Money, page sécurisée</span></div><div>${ic('truck')}<span><b>Livraison</b>Options et délai selon votre adresse</span></div><div>${ic('chat')}<span><b>Aide avant achat</b>Envoyez-nous l’étiquette de votre adaptateur</span></div><div>${ic('shield')}<span><b>Garantie</b>${w?esc(c.warranty.short||'Voir les conditions'):'Conditions précisées à l’ouverture'}</span></div></div>
 <div class="acc">
@@ -333,10 +353,14 @@ ${rv.length?`<a class="rate" href="#avis"><span class="stars" aria-hidden="true"
 
 ${rv.length?`<section class="band soft" id="avis"><div class="reviews"><h2>Avis clients</h2><p class="lead" style="margin-top:10px"><span class="stars">${stars(avg)}</span> ${nf.format(Math.round(avg*10)/10)}/5 sur ${rv.length} avis</p><div class="rgrid">${rv.map(r=>`<div class="rv"><span class="stars" aria-label="${num(r.rating)} sur 5">${stars(num(r.rating))}</span><p>${esc(r.text)}</p><p class="who"><b style="color:var(--ink)">${esc(r.name)}</b>${r.country?' · '+esc(cname(r.country)):''}${r.date?' · '+esc(r.date):''}${r.verified?' · Achat vérifié':''}</p></div>`).join('')}</div></div></section>`:OWNER?`<section class="band soft" id="avis"><div class="reviews"><h2>Avis clients</h2><p class="mute" style="margin-top:10px">Cette section apparaîtra dès que vous aurez ajouté de vrais avis d’acheteurs dans l’administration.</p>${todo('avis réels d’acheteurs')}</div></section>`:''}
 
+${p?`<section class="band" id="offre"><div class="wrap"><h2 class="center">Votre offre aujourd’hui</h2><p class="lead center" style="margin:14px auto 0;max-width:40em">Moins de 30&nbsp;FCFA par jour sur un an, sans carburant ni abonnement : il se recharge tout seul au retour du courant.</p>
+<div class="offer-grid"><div class="stack"><h3>Ce que vous recevez</h3><ul><li>${ic('check')}<span>Le mini-onduleur WGP 12 V : batterie 22,2 Wh et 4 protections</span></li><li>${ic('check')}<span>Le câble séparateur pour alimenter routeur et boîtier fibre en même temps</span></li><li>${ic('check')}<span>L’aide à la compatibilité avant achat : envoyez-nous la photo de l’étiquette</span></li><li>${ic('check')}<span>Le retrait chez notre partenaire de transport, inclus dans le prix</span></li><li>${ic('check')}<span>La garantie ${w?esc(wm):'3 mois'} : échange si défectueux</span></li><li>${ic('check')}<span><b>Remboursé sous 7 jours</b> s’il ne marche pas avec votre box</span></li></ul></div>
+<div class="plans"><div class="plan"><span class="mute">1 mini-onduleur</span><span class="pp">${priceHTML()}</span><button class="btn sec wide" data-act="buy1">Choisir</button></div>${pack2()?`<div class="plan best"><span class="tagb">Meilleure affaire</span><span class="mute">Pack duo : 2 mini-onduleurs</span><span class="pp">${fcfa(pack2())} <s class="small mute" style="font:500 18px var(--f2)">${fcfa(p*2)}</s></span><span class="small">Soit ${fcfa(pack2()/2)} l’unité : ${fcfa(p*2-pack2())} d’économie</span><button class="btn wide" data-act="pack">Choisir le pack duo</button></div>`:''}${promoOn()?`<p class="small" style="text-align:center">Offre de bienvenue : <b>−${PROMO_PCT} %</b> en plus sur votre commande, encore <b class="pt">${mmss(promoLeft())}</b>.</p>`:''}</div></div>
+<div class="risk"><div>${ic('refresh')}<b>Ne marche pas avec votre box&nbsp;? Remboursé.</b><span class="small">Rapportez-le sous 7 jours après le retrait, complet et dans sa boîte : le prix du produit vous est remboursé.</span></div><div>${ic('shield')}<b>Défectueux&nbsp;? Échangé.</b><span class="small">Garantie ${w?esc(wm):'3 mois'} : un produit qui tombe en panne est échangé contre un produit identique.</span></div><div>${ic('chat')}<b>Un doute avant d’acheter&nbsp;?</b><span class="small">Envoyez-nous la photo de l’étiquette de votre adaptateur : nous vous disons s’il est compatible.</span></div></div></div></section>`:''}
 <section class="band final"><div class="fin"><div class="card"><img src="img/g-face.webp" alt="Mini-onduleur WGP UPS1202A" loading="lazy"></div>
-<div><h2>Ne perdez plus votre connexion à chaque coupure.</h2><p>Un petit boîtier, deux minutes d’installation, et votre routeur reste allumé quand le courant saute.</p>
-<div class="hcta"><button class="btn" data-act="buy"${p?'':' disabled'}>${p?'Commander maintenant':'Bientôt disponible'}</button><div class="hp">${p?fcfa(p):''}<small>${p?'Livraison précisée à la commande':''}</small></div></div>
-<div class="badges"><span>${ic('battery')}3 à 4 h d’autonomie*</span><span>${ic('lock')}Carte ou Mobile Money</span>${w?`<span>${ic('shield')}Garantie ${esc(wm)}</span>`:''}<span>${ic('chat')}Aide à la compatibilité</span></div></div></div></section>
+<div><h2>Ne perdez plus votre connexion à chaque coupure.</h2><p>Un petit boîtier, deux minutes d’installation, et votre routeur reste allumé quand le courant saute. Et s’il ne marche pas avec votre box, vous êtes remboursé.</p>
+<div class="hcta"><button class="btn" data-act="buy"${p?'':' disabled'}>${p?'Commander maintenant':'Bientôt disponible'}</button><div class="hp">${p?priceHTML():''}<small>${p?packLine():''}</small></div></div>${promoTag()}
+<div class="badges"><span>${ic('battery')}3 à 4 h d’autonomie*</span><span>${ic('lock')}Carte ou Mobile Money</span>${w?`<span>${ic('shield')}Garantie ${esc(wm)}</span>`:''}<span>${ic('refresh')}Remboursé sous 7 jours si incompatible</span></div></div></div></section>
 
 <section class="band${rv.length||OWNER?'':' soft'}" id="questions"><div class="wrap"><h2 class="center">Questions fréquentes</h2><div class="faq">${faqs().map(([q,a],i)=>`<details${i?'':' open'}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div></div></section>
 
@@ -346,7 +370,7 @@ ${rv.length?`<section class="band soft" id="avis"><div class="reviews"><h2>Avis 
 function drawerHTML(){const p=price(),q=cart.qty,I=imgs();
  return `<div class="dh"><h3 style="font-size:20px">Votre panier</h3><button class="icb" data-act="close" aria-label="Fermer le panier">${ic('x')}</button></div>
 <div class="db">${q?`<div class="line"><div class="thumb"><img src="${I[0][0]}" alt=""></div><div><b>${esc(cfg.product.name)}</b><p class="small mute">12 V – 2 A · Noir</p><div style="display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap"><div class="qty sm" role="group" aria-label="Quantité"><button data-act="cq" data-d="-1" aria-label="Diminuer">−</button><output>${q}</output><button data-act="cq" data-d="1" aria-label="Augmenter">+</button></div><button class="lnk small" data-act="crm">Retirer</button></div></div><div class="amt">${p?fcfa(p*q):'—'}</div></div>`:'<p class="mute">Votre panier est vide.</p>'}</div>
-${q?`<div class="df"><dl class="tot"><dt>Sous-total</dt><dd>${p?fcfa(p*q):'À confirmer'}</dd></dl><p class="small mute" style="margin:8px 0 14px">Mode de livraison précisé à l’étape suivante, selon votre adresse.</p><a class="btn wide" href="#commande" data-act="close">Commander</a></div>`:`<div class="df"><button class="btn sec wide" data-act="close">Continuer mes achats</button></div>`}`}
+${q?`<div class="df">${(()=>{const c=calc(q);return `${q===1&&pack2()?`<div class="upsell"><span>Ajoutez-en un 2<sup>e</sup> : le pack duo passe à <b>${fcfa(pack2())}</b> au lieu de ${fcfa(p*2)}.</span><button class="btn sm" data-act="cq" data-d="1">+1</button></div>`:''}<dl class="tot"><dt>Sous-total</dt><dd>${p?fcfa(p*q):'À confirmer'}</dd>${c&&c.pack?`<dt>Remise pack duo</dt><dd class="okc">−${fcfa(c.pack)}</dd>`:''}${c&&c.disc?`<dt>Bienvenue −${PROMO_PCT} %</dt><dd class="okc">−${fcfa(c.disc)}</dd>`:''}${c&&(c.pack||c.disc)?`<dt><b>Total</b></dt><dd><b>${fcfa(c.total)}</b></dd>`:''}</dl>`})()}<p class="small mute" style="margin:8px 0 14px">Mode de livraison précisé à l’étape suivante, selon votre adresse.</p><a class="btn wide" href="#commande" data-act="close">Commander</a></div>`:`<div class="df"><button class="btn sec wide" data-act="close">Continuer mes achats</button></div>`}`}
 function openDrawer(o){drawerOpen=o;const d=$('#drawer');if(o)d.innerHTML=drawerHTML();d.classList.toggle('on',o);d.setAttribute('aria-hidden',!o);$('#ovl').classList.toggle('on',o);if(o)d.querySelector('button')?.focus()}
 
 /* ---------- Commande ---------- */
@@ -360,15 +384,15 @@ function shipBlock(){const s=cfg.ship,f=fee();
 <p class="small mute" style="margin-top:8px">Délai annoncé : ${esc(delayTxt())}${s.extra?`, ${esc(s.extra)}`:''}. Nous vous contactons${s.contactBy?' '+esc(s.contactBy):''} dès que votre colis est disponible.${s.instructions?' '+esc(s.instructions):''}</p>${f===null||!s.type||!s.start?todo('frais, type de jours et point de départ du délai'):''}${s.contactBy?'':todo('mode de contact à l’arrivée du colis')}</div>`}
 function sumHTML(){const p=price(),f=fee(),q=cart.qty,ok=shipOK()&&f!==null,I=imgs();
  return `<div class="line" style="grid-template-columns:64px minmax(0,1fr) auto"><div class="thumb" style="width:64px;height:64px"><img src="${I[0][0]}" alt=""></div><div><b>${esc(cfg.product.name)}</b><p class="small mute">12 V – 2 A · Noir · Quantité ${q}</p></div><div class="amt">${p?fcfa(p*q):'—'}</div></div>
-<dl class="tot" style="margin-top:18px"><dt>Sous-total</dt><dd>${p?fcfa(p*q):'À confirmer'}</dd><dt>Livraison</dt><dd>${shipOK()?(f===null?'À confirmer':f===0?'Incluse':fcfa(f)):'Selon l’adresse'}</dd><dt class="grand">Total (XAF)</dt><dd class="grand">${p&&ok?fcfa(p*q+f):'—'}</dd></dl>`}
-function payArea(){const p=price(),f=fee(),ok=!!(p&&f!==null&&shipOK()),tot=ok?p*cart.qty+f:null;
+<dl class="tot" style="margin-top:18px"><dt>Sous-total</dt><dd>${p?fcfa(p*q):'À confirmer'}</dd>${(()=>{const c=calc(q);return (c&&c.pack?`<dt>Remise pack duo</dt><dd class="okc">−${fcfa(c.pack)}</dd>`:'')+(c&&c.disc?`<dt>Offre de bienvenue −${PROMO_PCT} %</dt><dd class="okc">−${fcfa(c.disc)}</dd>`:'')})()}<dt>Livraison</dt><dd>${shipOK()?(f===null?'À confirmer':f===0?'Incluse':fcfa(f)):'Selon l’adresse'}</dd><dt class="grand">Total (XAF)</dt><dd class="grand">${p&&ok?fcfa(calc(q).total):'—'}</dd></dl>${promoOn()?`<p class="small" style="margin-top:10px">Offre de bienvenue valable encore <b class="pt">${mmss(promoLeft())}</b></p>`:''}`}
+function payArea(){const p=price(),f=fee(),ok=!!(p&&f!==null&&shipOK()),tot=ok?calc(cart.qty).total:null;
  const pm=form.pm||'carte';
  const head=`<div class="pms" role="radiogroup" aria-label="Moyen de paiement"><label class="pm${pm==='carte'?' sel':''}"><input type="radio" name="pm" value="carte"${pm==='carte'?' checked':''}>${ic('card')}<span><b>Carte bancaire</b>Visa, Mastercard</span></label><label class="pm${pm==='momo'?' sel':''}"><input type="radio" name="pm" value="momo"${pm==='momo'?' checked':''}>${ic('phone')}<span><b>Mobile Money</b>Airtel Money, Moov Money</span></label></div><p class="small mute" style="margin-top:10px">Vous validez le paiement sur la page sécurisée ${providerOK()?'de '+esc(cfg.pay.provider):'du prestataire de paiement'}. Aucune donnée de carte n’est saisie sur ce site.</p>`;
  if(PAY_ACTIVE)return head+(PAY_TEST?'<p class="testban" style="margin-top:12px">Mode test : aucun débit réel</p>':'')+`<button class="btn wide" id="paybtn" style="margin-top:16px" type="submit"${ok&&!payBusy?'':' disabled'}>${payBusy?'Redirection vers le paiement…':'Payer '+(ok?fcfa(tot):'')}</button><p class="small mute" style="margin-top:10px">Les frais du prestataire de paiement s’ajoutent à ce total selon le moyen choisi ; leur montant s’affiche sur la page de paiement, avant toute validation.</p>`;
  if(OWNER&&cfg.test.enabled)return head+`<div class="testbox"><b>Mode test</b><p class="small">Visible uniquement par vous. Aucune transaction réelle.</p><div class="fl"><label for="simres">Réponse simulée du prestataire</label><select id="simres"><option value="confirme">Paiement confirmé</option><option value="refuse">Paiement refusé</option><option value="annule">Paiement annulé</option><option value="attente">Paiement en attente</option></select></div></div><button class="btn wide" style="margin-top:16px" type="submit"${ok?'':' disabled'}>Simuler le paiement${ok?' de '+fcfa(tot):''}</button>`;
  return head+`<button class="btn wide" style="margin-top:16px" type="button" disabled>Paiement bientôt disponible</button><p class="small mute" style="margin-top:10px">Le paiement en ligne ouvrira très prochainement : aucune somme ne peut être débitée pour l’instant.</p>`}
 function pgCheckout(){if(!cart.qty)return `<section class="band"><div class="wrap narrow"><h1>Votre panier est vide</h1><p style="margin-top:24px"><a class="btn" href="#">Voir le produit</a></p></div></section>`;
- return `<section class="band"><div class="co"><form id="coform" novalidate><h1 style="margin-bottom:20px">Commande</h1><details class="msum"><summary><span>Récapitulatif</span><b id="msumt">${(()=>{const p=price(),f=fee();return p?fcfa(p*cart.qty+(shipOK()&&f!==null?f:0)):''})()}</b></summary><div id="sumb2">${sumHTML()}</div></details>
+ return `<section class="band"><div class="co"><form id="coform" novalidate><h1 style="margin-bottom:20px">Commande</h1><details class="msum"><summary><span>Récapitulatif</span><b id="msumt">${(()=>{const c=calc(cart.qty);return c?fcfa(c.total):''})()}</b></summary><div id="sumb2">${sumHTML()}</div></details>
 <fieldset><legend>Contact</legend>${inp('f_email','Adresse e-mail','email','email','')}${inp('f_phone','Téléphone','tel','tel','Pour vous prévenir à l’arrivée de votre colis.','Avec l’indicatif du pays')}</fieldset>
 <fieldset><legend>Livraison</legend>
 <div class="fl"><label for="f_country">Pays</label><select id="f_country" autocomplete="country"><option value="">Choisir un pays</option>${COUNTRIES.map(([c,n])=>`<option value="${c}"${form.country===c?' selected':''}>${esc(n)}</option>`).join('')}</select></div>
@@ -379,7 +403,7 @@ function pgCheckout(){if(!cart.qty)return `<section class="band"><div class="wra
 <fieldset style="margin:0"><legend>Paiement</legend><div id="payb">${payArea()}</div></fieldset>
 <p class="err" id="ferr" role="alert"></p></form>
 <aside class="sum" aria-label="Récapitulatif"><h2 class="h3" style="font:600 20px var(--f1);margin-bottom:16px">Récapitulatif</h2><div id="sumb">${sumHTML()}</div></aside></div></section>`}
-function refreshCheckout(){const a=$('#shipb'),b=$('#sumb'),c=$('#payb'),b2=$('#sumb2'),t=$('#msumt');if(a)a.innerHTML=shipBlock();if(b)b.innerHTML=sumHTML();if(b2)b2.innerHTML=sumHTML();if(t){const p=price(),f=fee();t.textContent=p?fcfa(p*cart.qty+(shipOK()&&f!==null?f:0)):''}if(c){const v=$('#simres')?.value;c.innerHTML=payArea();if(v&&$('#simres'))$('#simres').value=v}}
+function refreshCheckout(){const a=$('#shipb'),b=$('#sumb'),c=$('#payb'),b2=$('#sumb2'),t=$('#msumt');if(a)a.innerHTML=shipBlock();if(b)b.innerHTML=sumHTML();if(b2)b2.innerHTML=sumHTML();if(t){const c=calc(cart.qty);t.textContent=c?fcfa(c.total):''}if(c){const v=$('#simres')?.value;c.innerHTML=payArea();if(v&&$('#simres'))$('#simres').value=v}}
 
 const RES={
  confirme:['check','','Commande confirmée',()=>`Votre commande est confirmée. Vous serez contacté lorsque votre colis arrivera à notre point de retrait de ${esc(cfg.ship.city||'votre ville')}.`],
@@ -393,7 +417,7 @@ function pgRes(st){const o=order;
  const acts={confirme:'<a class="btn" href="#">Retour à la boutique</a>',refuse:'<a class="btn" href="#commande">Réessayer le paiement</a><a class="btn sec" href="#contact">Contacter le service client</a>',annule:'<a class="btn" href="#commande">Reprendre le paiement</a><button class="btn sec" data-act="cart">Voir le panier</button>',attente:'<button class="btn" data-act="refresh">Actualiser le statut</button><a class="btn sec" href="#contact">Contacter le service client</a>'}[st];
  return `<section class="band"><div class="wrap narrow">${o.test?'<p class="testban">Simulation de test : aucune transaction réelle</p>':''}<div class="result"><div class="rico ${k}">${ic(i)}</div><div><h1>${t}</h1><p class="lead" style="margin-top:14px;color:var(--ink)">${m()}</p>
 <div class="refbox"><span class="mute">Référence de commande</span><b>${esc(o.ref)}</b></div>
-<dl class="tot"><dt>${esc(cfg.product.name)} × ${o.qty}</dt><dd>${fcfa(o.unit*o.qty)}</dd><dt>Livraison</dt><dd>${o.fee===0?'Incluse':fcfa(o.fee)}</dd><dt class="grand">Total (XAF)</dt><dd class="grand">${fcfa(o.total)}</dd></dl>
+<dl class="tot"><dt>${esc(cfg.product.name)} × ${o.qty}</dt><dd>${fcfa(o.unit*o.qty)}</dd>${o.pack?`<dt>Remise pack duo</dt><dd>−${fcfa(o.pack)}</dd>`:''}${o.disc?`<dt>Offre de bienvenue</dt><dd>−${fcfa(o.disc)}</dd>`:''}<dt>Livraison</dt><dd>${o.fee===0?'Incluse':fcfa(o.fee)}</dd><dt class="grand">Total (XAF)</dt><dd class="grand">${fcfa(o.total)}</dd></dl>
 ${st==='confirme'?`<p class="small mute" style="margin-top:16px">Point de retrait : ${esc(cfg.ship.office)}${cfg.ship.address?', '+esc(cfg.ship.address):''}. Délai annoncé : ${esc(delayTxt())}${cfg.ship.extra?', '+esc(cfg.ship.extra):''}. Pour toute question, contactez uniquement notre service client.</p>`:''}
 ${o.test&&st==='attente'?'<div class="testbox"><b>Simuler la réponse du prestataire</b><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn sm" data-act="simto" data-s="confirme">Confirmer</button><button class="btn sec sm" data-act="simto" data-s="refuse">Refuser</button></div></div>':''}
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px">${acts}</div></div></div></div></section>`}
@@ -461,7 +485,7 @@ const PAGES={commande:pgCheckout,'paiement-confirme':()=>pgRes('confirme'),'paie
 const route=()=>{const h=decodeURIComponent(location.hash.slice(1));return PAGES[h]?{p:h}:{p:'',a:h==='panier'?'':h,cart:h==='panier'}};
 function chrome(){const n=cfg.shop.name||'Boutique';$('#brand').textContent=n;
  const cn=$('#cartn');cn.textContent=cart.qty;cn.hidden=!cart.qty;
- $('#ann').innerHTML=`${PAY_ACTIVE?'':'<span>Ouverture des commandes très prochainement</span>'}<span>Livraison calculée selon votre adresse</span><span>Aide à la compatibilité avant achat</span>`;
+ $('#ann').innerHTML=`${PAY_ACTIVE?'':'<span>Ouverture des commandes très prochainement</span>'}${promoOn()?`<span>−${PROMO_PCT} % de bienvenue · encore <b class="pt">${mmss(promoLeft())}</b></span>`:''}<span>Remboursé sous 7 jours si incompatible avec votre box</span><span>Aide à la compatibilité avant achat</span>`;
  const miss=checks().filter(x=>!x.ok).length;
  $('#obar').innerHTML=OWNER?`<div class="obar"><div><span class="dot"></span><b>Aperçu propriétaire</b><span>${miss} point${miss>1?'s':''} à compléter avant l’ouverture${dbState==='slow'?' · configuration partagée lente à répondre':''}</span><a href="#admin">Ouvrir l’administration</a></div></div>`:'';
  $('#foot').innerHTML=`<div class="fgrid"><div><a class="logo" href="#">${$('.logo svg').outerHTML}<span>${esc(n)}</span></a><p style="margin-top:14px;max-width:24em">${esc(cfg.shop.tagline)}.</p></div>
@@ -470,7 +494,7 @@ function chrome(){const n=cfg.shop.name||'Boutique';$('#brand').textContent=n;
 <div><h3>Service client</h3><ul>${contacts().map(([k,v])=>`<li>${k} : ${v}</li>`).join('')||'<li>Coordonnées publiées à l’ouverture</li>'}<li><a href="#contact">Nous écrire</a></li></ul></div></div>
 <div class="fbot"><span>Paiement par carte bancaire ou Mobile Money, sur la page sécurisée du prestataire. Aucune donnée de carte n’est saisie ni conservée sur ce site.</span><span>© ${new Date().getFullYear()} ${esc(n)}</span></div>`;
  const I=imgs(),p=price();
- $('#sbar').innerHTML=`<img src="${I[0][0]}" alt=""><div><b>${esc(cfg.product.name)}</b>${p?fcfa(p):'Prix bientôt disponible'}</div><button class="btn sm" data-act="buy"${p?'':' disabled'}>Acheter</button>`;
+ $('#sbar').innerHTML=`<img src="${I[0][0]}" alt=""><div><b>${esc(cfg.product.name)}</b>${p?(promoOn()?fcfa(Math.round(p*(100-PROMO_PCT)/100))+' <s class="mute">'+fcfa(p)+'</s>':fcfa(p)):'Prix bientôt disponible'}</div><button class="btn sm" data-act="buy"${p?'':' disabled'}>Acheter</button>`;
  if(drawerOpen)$('#drawer').innerHTML=drawerHTML()}
 function render(scroll){const r=route();$('#app').innerHTML=(PAGES[r.p]||pgHome)();chrome();
  $('#nav').classList.remove('open');$('.menu').setAttribute('aria-expanded','false');
@@ -512,7 +536,7 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g
  else if(a==='flow'){flowS=b.dataset.k;$('#flow').innerHTML=flowHTML();document.querySelectorAll('[data-act=flow]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===flowS))}
  else if(a==='preset'){auto={w:b.dataset.w,p:b.dataset.k};$('#aw').value=auto.w;$('#ares').innerHTML=autoRes();document.querySelectorAll('[data-act=preset]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===auto.p))}
  else if(a==='sq'){selQty=Math.min(maxQ(),Math.max(1,selQty+ +b.dataset.d));$('#selq').textContent=selQty}
- else if(a==='add'||a==='buy'){if(!price())return;cart.qty=Math.min(maxQ(),(a==='buy'?0:cart.qty)+selQty);saveCart();if(a==='buy'){openDrawer(false);location.hash='commande'}else openDrawer(true)}
+ else if(a==='add'||a==='buy'||a==='pack'||a==='buy1'){if(!price())return;if(a==='pack')selQty=2;if(a==='buy1')selQty=1;cart.qty=Math.min(maxQ(),(a==='add'?cart.qty:0)+selQty);saveCart();if(a!=='add'){openDrawer(false);location.hash='commande'}else openDrawer(true)}
  else if(a==='cq'){cart.qty=Math.min(maxQ(),Math.max(1,cart.qty+ +b.dataset.d));saveCart()}
  else if(a==='crm'){cart.qty=0;saveCart()}
  else if(a==='gto')gTo(+b.dataset.i);
@@ -542,12 +566,12 @@ document.addEventListener('change',async e=>{if(e.target.id!=='upl'||!ASSETS)ret
 document.addEventListener('submit',e=>{if(e.target.id!=='coform')return;e.preventDefault();
  const errs=validate();$('#ferr').textContent=errs.join(' ');if(errs.length){toast(errs[0]);$('#ferr').scrollIntoView({block:'center',behavior:'smooth'});return}
  const p=price(),f=fee(),q=cart.qty;if(!(p&&f!==null&&q&&shipOK()))return;
- const o={ref:mkRef(),qty:q,unit:p,fee:f,total:p*q+f,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:form.pm||'carte',at:new Date().toISOString(),status:'attente'};
+ const c0=calc(q);const o={ref:mkRef(),qty:q,unit:p,fee:f,pack:c0.pack,disc:c0.disc,total:c0.total,name:$('#f_name').value.trim(),phone:$('#f_phone').value.trim(),email:$('#f_email').value.trim(),country:form.country,city:form.f_city,pm:form.pm||'carte',at:new Date().toISOString(),status:'attente'};
  if(PAY_ACTIVE){if(payBusy)return;payBusy=true;refreshCheckout();
    const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),25000);
-   fetch('/api/checkout',{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm})})
+   fetch('/api/checkout',{method:'POST',signal:ac.signal,headers:{'Content-Type':'application/json'},body:JSON.stringify({qty:o.qty,name:o.name,phone:o.phone,email:o.email,country:o.country,city:o.city,pm:o.pm,promo:promoOn()&&promoTok&&promoTok.sig?{iat:promoTok.iat,sig:promoTok.sig}:null})})
    .then(r=>{clearTimeout(tm);return r.json().catch(()=>({})).then(j=>({ok:r.ok,j}))}).then(({ok,j})=>{if(!ok||!j.url)throw new Error(j.error||'Le paiement n’a pas pu être lancé. Réessayez dans un instant.');
-    setOrder({...o,ref:j.ref,total:j.total,session:j.session,live:true,test:!!j.test,status:'attente'});location.href=j.url})
+    setOrder({...o,ref:j.ref,total:j.total,pack:j.pack||0,disc:j.disc||0,session:j.session,live:true,test:!!j.test,status:'attente'});location.href=j.url})
    .catch(err=>{clearTimeout(tm);payBusy=false;refreshCheckout();const m=err&&err.name==='AbortError'?'La connexion est trop lente : réessayez.':(err&&err.message)||'Le paiement n’a pas pu être lancé.';const fe=$('#ferr');if(fe){fe.textContent=m;fe.scrollIntoView({block:'center',behavior:'smooth'})}toast(m)});return}
  if(!(OWNER&&cfg.test.enabled))return;
  o.test=true;o.status=$('#simres').value;setOrder(o);location.hash='paiement-'+o.status});
@@ -566,8 +590,10 @@ async function checkPay(manual){const o=order;if(!o||!o.session||o.status!=='att
   if(!/^https?:$/.test(location.protocol)||window.claude)return;
   const r=await fetch('/api/config',{cache:'no-store'});if(!r.ok)return;const j=await r.json();
   PAY_TEST=!!j.test;PAY_PRIV=!!j.active&&!j.open;PAY_ACTIVE=!!j.active&&(!!j.open||LS.get('kt_paytest',0)===1);
+  if(PAY_ACTIVE&&!promoTok){try{const pr=await fetch('/api/promo',{cache:'no-store'});if(pr.ok){const t=await pr.json();if(t&&t.sig){promoTok={iat:t.iat,sig:t.sig,end:Date.now()+PROMO_MS};LS.set('kt_promo',promoTok)}}}catch(e){}}
   if(PAY_ACTIVE)render();if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente')checkPay()}catch(e){}})();
 window.addEventListener('hashchange',()=>{if(order&&order.session&&order.status==='attente'&&route().p==='paiement-attente'){pollN=0;checkPay()}});
+setInterval(()=>{if(!promoTok||promoTok.done)return;const l=promoLeft();document.querySelectorAll('.pt').forEach(e=>{e.textContent=mmss(l)});if(l<=0){promoTok.done=1;LS.set('kt_promo',promoTok);if(route().p==='commande')refreshCheckout();else render()}},1000);
 window.addEventListener('pageshow',e=>{if(payBusy||e.persisted){payBusy=false;if(route().p==='commande')refreshCheckout();else render()}});
 
 /* ---------- Démarrage et données partagées ---------- */
